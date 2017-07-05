@@ -3,7 +3,7 @@ package br.com.livro.domain;
 import java.io.Serializable;
 
 public class Carro implements Serializable {
-	
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String tipo;
 	private String nome;
