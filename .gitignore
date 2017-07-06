@@ -4,6 +4,5 @@
 ### Java-Web ###
 ## ignoring target file
 target/
-build/
 
 # End of https://www.gitignore.io/api/java-web
