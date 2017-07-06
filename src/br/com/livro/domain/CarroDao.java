@@ -169,9 +169,9 @@ public class CarroDao extends BaseDao {
 			
 			conn = getConnection();
 			if(c.getId() == null) {
-				stmt = conn.prepareStatement("insert into carro (nome, descricao, url_foto, url_video, latitude, longitude, video) VALUES(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+				stmt = conn.prepareStatement("insert into carro (nome, descricao, url_foto, url_video, latitude, longitude, tipo) VALUES(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			} else {
-				stmt = conn.prepareStatement("update carro set nome=?, descricao=?, url_foto=?, url_video=?, latitude=?, longitude=?, video=? where id=?");
+				stmt = conn.prepareStatement("update carro set nome=?, descricao=?, url_foto=?, url_video=?, latitude=?, longitude=?, tipo=? where id=?");
 			}
 			
 			stmt.setString(1, c.getNome());
@@ -187,6 +187,7 @@ public class CarroDao extends BaseDao {
 			}
 			
 			int count = stmt.executeUpdate();
+
 			if(count == 0) {
 				throw new SQLException("Erro ao inserir o carro");
 			}
@@ -197,7 +198,6 @@ public class CarroDao extends BaseDao {
 			}
 
 		} finally {
-
 			if(stmt != null) {
 				stmt.close();
 			}
